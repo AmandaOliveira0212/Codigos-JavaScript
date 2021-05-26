@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Salários</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script language="JavaScript">
+        /*Objetivo: Calcular salario liquido de um funcionario que trabalha por hora*
+        para desenvolver o calculo é necessario ler as seguintes informações:
+            quantidade de trabalho: (js_vht)
+            valor de hora de desconto do INSS (js_inss)
+        informar a classe salarial
+        objetos/métodos utilizados:
+        entradas: window.prompt
+        saida: document.write*/
+
+        /* Difinicao das variaveis*/
+        var js_qht; //var de entradas - quantidade de horas trabalhadas
+        var js_vht; //var de entrada - valor da hora trabalhada
+        var js_inss; //var de entrada - total de descontos de INSS
+        var js_tdes; //var de saida - total de descontos
+        var js_sb; //var saida - valor de salario bruto
+        var js_sl; //var saida - valor de salario liquido
+
+        /*Entrada de dados*/
+        js_qht = parseFloat(window.prompt('Informe a quantidade de horas trabalhadas/Mês: (135 a 180)', '00'));
+        js_vht = parseFloat(window.prompt('Informe o valor da hora trabalhada: (25 a 50)', '00'));
+        js_inss = parseFloat(window.prompt('Informe o percentual de desconto INSS: (5 a 15)', '00'));
+
+        /*Processamento de dados*/
+        js_sb = js_vht * js_qht;
+        js_tdes = (js_inss / 100) * js_sb;
+        js_sl = js_sb - js_tdes;
+
+        /*Saida de dados*/
+        document.write('<p><b>Demonstrativo de cálculo do salário liquido</b>');
+
+        document.write('<p>quantidade de horas trabalhadas (135 a 180) => <b>' + js_qht + '</b>');
+        if (js_qht > 180) {
+            document.write('...(<b>Valor maximo excedido!</b>)');
+        }
+        if (js_qht < 135) {
+            document.write('...(<b>Valor minimo invalido!</b>)');
+        }
+
+        document.write('<p>Valor da hora trabalhista (25 a 50) => <b>' + js_vht + '</b>');
+        if (js_vht > 50) {
+            document.write('...(<b>Valor maximo excedido!</b>)');
+        }
+        if (js_vht < 25) {
+            document.write('...(<b>Valor minimo invalido!</b>)');
+        }
+
+        document.write('<p>Percentual de Desconto INSS (5 a 15) =>' + js_inss + '</b>');
+        if (js_inss > 15) {
+            document.write('...(<b>Valor maximo excedido!</b>)');
+        }
+        if (js_inss < 5) {
+            document.write('...(<b>Valor minimo invalido!</b>)');
+        }
+
+        document.write('<p>----------------------------------------------------------');
+        document.write('<p><br>Salario Bruto = </b>' + js_sb);
+        document.write('<p>Total de Descontos INSS =' + js_tdes);
+        document.write('<p><b>Salario Liquido = </b>' + js_sl);
+
+        /*Saida de dados com aninhamento de if*/
+        if (js_sl > 10500) {
+            document.write('...(<b>Salario Elevado! </b>maior que 10.500)');
+        } else {
+            if (js_sl > 6000) {
+                document.write('...(<b>Salario Satisfatorio! </b>maior que 6000)');
+            } else {
+                if (js_sl > 3000) {
+                    document.write('...(<b>Salario Moderado! </b>maior que 3000)');
+                }
+                else {
+                    document.write('...(<b>Salario Insatisfatorio! </b>menor ou igual a 3.000)');
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

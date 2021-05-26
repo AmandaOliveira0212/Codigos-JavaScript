@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>While - condicional</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script language="JavaScript">
+
+        /*Definindo váriaveis*/
+        var js_contador = 1;
+        var js_resposta = true;
+
+        /*Laço de Repetição Condicional while utilizando controle de limitação pel usuário*/
+        while (js_resposta == true) {
+            document.write('<p>' + js_contador + 'ª; Repeticao de uma unica linha dentro de um laço condicional: ');
+            js_contador += 1;
+            js_resposta = window.confirm('Deseja continuar?');
+        }
+
+    </script>
+</body>
+
+</html>
